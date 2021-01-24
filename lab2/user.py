@@ -1,4 +1,8 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
 #Lab 2-7
+
 name = input("What is your name? ")
 age = input("How old are you? ")
 place = input("Where are you live? ")
