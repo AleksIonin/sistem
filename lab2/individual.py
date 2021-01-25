@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-#Lab 2-11-5
+
+#Lab 2
+# 5. Даны длины сторон прямоугольного параллелепипеда. Найти его объем и площадь боковой
+# поверхности.
 
 
 length = float(input("Enter the length "))
