@@ -10,6 +10,7 @@
 from math import acos
 from math import degrees
 from math import sqrt
+import sys
 
 class Triangle:
     def __init__(self, side_a, side_b, side_c):
@@ -89,7 +90,7 @@ class Triangle:
             return False
 
     # Вывод информации о треугольнике
-    def output(self):
+    def display(self):
         print(f"Стороны треугольника: {a.side_a}, {a.side_b}, {a.side_c}")
         if self.calc():
             print(f"Углы треугольника: {a.__ang_ac}, {a.__ang_ab}, {a.__ang_bc}")
@@ -100,23 +101,40 @@ class Triangle:
         else:
             print("Невозможно построить треугольник с такими сторонами")
 
-# Создаем экземпляр класса
-a = Triangle(1, 1, 100)
-# Выводим информацию о треугольнике
-a.output()
+    def read(self):
+        sides = input("Введите стороны треугольника через пробел").split(" ")
+        if len(sides) == 3:
+            self.__side_a = int(sides[0])
+            self.__side_b = int(sides[1])
+            self.__side_c = int(sides[2])
+        else:
+            print("Для создания нового треугольника необходимо задать три стороны")
 
-# Переопределяем стороны треугольника
-a.side_a = 2
-a.side_b = 2
-a.side_c = 2
 
-# Выводим информацию о треугольнике
-a.output()
+if __name__ == '__main__':
+    # Создаем экземпляр класса и инициализируем его начальными значениями
+    a = Triangle(3, 4, 5)
+    # Организовать бесконечный цикл запроса команд.
+    while True:
+        # Запросить команду из терминала.
+        command = input(">>> ").lower()
 
-# Переопределяем стороны треугольника
-a.side_a = 3
-a.side_b = 4
-a.side_c = 5
+        # Выполнить действие в соответствие с командой.
+        if command == 'exit':
+            break
 
-# Выводим информацию о треугольнике
-a.output()
+        elif command == 'read':
+            a.read()
+
+        elif command == 'display':
+            a.display()
+
+        elif command == 'help':
+            # Вывести справку о работе с программой.
+            print("Список команд:\n")
+            print("read - задать новые стороны треуголдьника;")
+            print("display - вывести информацию о треугольнике;")
+            print("help - отобразить справку;")
+            print("exit - завершить работу с программой.")
+        else:
+            print(f"Неизвестная команда {command}", file=sys.stderr)
