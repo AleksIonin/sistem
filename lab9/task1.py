@@ -91,9 +91,9 @@ class Triangle:
 
     # Вывод информации о треугольнике
     def display(self):
-        print(f"Стороны треугольника: {a.side_a}, {a.side_b}, {a.side_c}")
+        print(f"Стороны треугольника: {self.side_a}, {self.side_b}, {self.side_c}")
         if self.calc():
-            print(f"Углы треугольника: {a.__ang_ac}, {a.__ang_ab}, {a.__ang_bc}")
+            print(f"Углы треугольника: {self.__ang_ac}, {self.__ang_ab}, {self.__ang_bc}")
             print(f"Площадь треугольника {self.get_area()}")
             print(f"Периметр треугольника {self.get_perimeter()}")
             print(f"Высоты сторон треугольника {self.get_heights()}")
@@ -102,7 +102,7 @@ class Triangle:
             print("Невозможно построить треугольник с такими сторонами")
 
     def read(self):
-        sides = input("Введите стороны треугольника через пробел").split(" ")
+        sides = input("Введите стороны треугольника через пробел ").split(" ")
         if len(sides) == 3:
             self.__side_a = int(sides[0])
             self.__side_b = int(sides[1])
